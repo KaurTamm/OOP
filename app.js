@@ -24,4 +24,14 @@ sisu = document.links;              // Kõik lingid
 sisu = document.links[0];           // Esimene link
 sisu = document.links[0].className; // Esimese lingi klassid
 sisu = document.links[0].classList; // Esimese lingi klasside list
+
+// images
+sisu = document.images;             // Kõik pildid
+
+// scripts
+sisu = document.scripts;            // Kõik scriptid
+sisu = document.scripts[0].getAttribute('src');
+sisu = document.scripts[1].getAttribute('src');
+sisu = document.scripts[2].getAttribute('src');
+
 console.log(sisu);
