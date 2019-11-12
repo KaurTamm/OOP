@@ -5,9 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>OOP</title>
+    <script src="https://kit.fontawesome.com/b3ae2a6529.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>OOP Course</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Ülesanded
+                        </span>
+                        <form>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="task">Uus ülesanne</label>
+                                    <input type="text" id="task" value="Õpi OOP JavaScripti">
+                                </div>
+                            </div>
+                            <input type="submit" value="Lisa ülesannne" class="btn">
+                        </form>
+                    </div>
+                    <div class="card-action">
+                        <h5>Lisatud Ülesanded</h5>
+                        <ul class="collection">
+                            <li class="collection-item">
+                                Õpi OOP JavaScripti
+                                <a href="#" class="delete-item secondary-content"><i class="fas fa-times-circle"></i></a>
+                            </li>
+                            <li class="collection-item">
+                                Õpi OSA
+                                <a href="#" class="delete-item secondary-content"><i class="fas fa-times-circle"></i></a>
+                            </li>
+                            <li class="collection-item">
+                                Õpi Infoturve
+                                <a href="#" class="delete-item secondary-content"><i class="fas fa-times-circle"></i></a>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn black">Kustuta kõik</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
