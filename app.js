@@ -10,4 +10,9 @@ document.getElementById('title').style.background = '#333';
 sisu.style.color = '#fff';
 sisu.style.padding = '5px'
 
+// content change
+sisu.textContent = 'Minu ülesanded';
+sisu.innerText = 'Just minu ülesanded';
+sisu.innerHTML = '<span style="color:green;">Vabad ülesanded</span>';
+
 console.log(sisu);
