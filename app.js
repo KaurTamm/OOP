@@ -1,4 +1,4 @@
-//document
+// document
 let sisu;
 sisu = document;                // Sisu HTMLis
 sisu = document.all;            // HTML tagid kasutamis järjekorras
@@ -12,5 +12,10 @@ sisu = document.URL;            // URL
 sisu = document.charset;        // Character set
 sisu = document.contentType;    // Sisu tüüp
 
-
+// form
+sisu = document.forms;          // Kõik formid
+sisu = document.forms[0];       // Esimene form
+sisu = document.forms[0].id;    // Esimese formi id
+sisu = document.forms[0].method;// Form method
+sisu = document.forms[0].action;// Form action
 console.log(sisu);
