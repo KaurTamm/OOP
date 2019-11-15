@@ -1,13 +1,36 @@
 // document methods
-// single element selector
-sisu = document.querySelector('#title');            // id järgi
-sisu = document.querySelector('.card-title');       // klassi järgi
-sisu = document.querySelector('h5');                // elemendi järgi
+// multiple element selector
 
-// style change
-document.querySelector('li').style.color = 'red';
-document.querySelector('ul li').style.color = 'blue';
-sisu = document.querySelector('li:last-child').style.color = 'red';
-sisu = document.querySelector('li:nth-child(2)').style.color = 'orange';
-
+// class
+sisu = document.getElementsByClassName('collection-item');           
 console.log(sisu);
+console.log(sisu[0]);
+sisu[0].style.color = 'green';
+sisu[2].textContent = 'Õpi AV';
+
+//query + class
+let listElemendid = document.querySelector('ul').getElementsByClassName('collection-item');
+
+// element
+listElemendid = document.getElementsByTagName('li');
+
+// HTML collection > array
+listElemendid = Array.from(listElemendid);
+// array method
+listElemendid.reverse();
+
+// array cycle
+for(let i = 0; i < listElemendid.length; i++){
+    console.log(listElemendid[i].className);
+}
+
+listElemendid.forEach(function(element){
+    console.log(element);
+    element.style.background = 'lightgray';
+})
+
+let nimekiriPaaritu = document.querySelectorAll('li:nth-child(odd)');
+console.log(nimekiriPaaritu);
+
+let nimekiriPaaris = document.querySelectorAll('li:nth-child(even)');
+console.log(nimekiriPaaris);
