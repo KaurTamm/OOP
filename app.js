@@ -1,26 +1,11 @@
 // document methods
-// replacing elements
+// deleting elements
 
-const oldTitle = document.querySelector('h5');
-const divCardAction = document.querySelector('.card-action');
+const liElement = document.querySelectorAll('li');
+liElement[2].remove();
 
-const newTitle = document.createElement('h3');
-newTitle.id = 'new-title';
-newTitle.textContent = 'Uued ülesanded';
-// newTitle.appendChild(document.createTextNode('Uued ülesanded'))
+const ulElement = document.querySelector('ul.collection');
+ulElement.removeChild(liElement[1]);
 
-divCardAction.replaceChild(newTitle, oldTitle);
-
-
-console.log(newTitle);
-
-/////////////////////////////////////////////////////////////////
-
-const divCardTitle = document.querySelector('.card-content');
-const oldCardTitle = document.querySelector('.card-title');
-
-const newCardTitle = document.createElement('h4');
-newCardTitle.id = 'title';
-newCardTitle.textContent = 'Ülesanded';
-
-divCardTitle.replaceChild(newCardTitle, oldCardTitle);
+console.log(liElement);
+console.log(ulElement);
