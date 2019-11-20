@@ -3,24 +3,30 @@
 // function deleteAllBtn(e){
 //    document.querySelectorAll('li').forEach(el => el.remove()); 
 //};
+//const deleteAll = document.querySelector('.clear-tasks');
+//deleteAll.addEventListener('click', deleteAllBtn);;
 
 function syndmus(e){
     console.log(`Sündmuse tüüp: ${e.type}`);
-    text.textContent = `HiirX: ${e.offsetX} HiirY: ${e.offsetY}`;
-    document.body.style.background = `rgb(${e.offsetX}, ${e.offsetY}, 40)`
+    console.log(newTaskDesc.value);
+    text.innerText = newTaskDesc.value;   
 }
 
 const text = document.querySelector('h5');
-
 const card = document.querySelector('.card');
-//card.addEventListener('mouseenter', syndmus);
-//card.addEventListener('mouseleave', syndmus);
-//card.addEventListener('mouseover', syndmus);
-//card.addEventListener('mouseout', syndmus);
-card.addEventListener('mousemove', syndmus);
+const form = document.querySelector('form');
+const newTaskDesc = document.getElementById('task');
+newTaskDesc.value = '';
 
-const deleteAll = document.querySelector('.clear-tasks');
-deleteAll.addEventListener('click', syndmus);
-// deleteAll.addEventListener('mouseup', syndmus);
-// deleteAll.addEventListener('mousedown', syndmus);
-// deleteAll.addEventListener('dblclick', syndmus);
+// form send
+form.addEventListener('submit', syndmus);
+
+// keyboard
+// newTaskDesc.addEventListener('keydown', syndmus);
+// newTaskDesc.addEventListener('keyup', syndmus);
+// newTaskDesc.addEventListener('keypress', syndmus);
+// newTaskDesc.addEventListener('focus', syndmus);
+// newTaskDesc.addEventListener('blur', syndmus);
+// newTaskDesc.addEventListener('paste', syndmus); 
+// newTaskDesc.addEventListener('cut', syndmus);
+newTaskDesc.addEventListener('input', syndmus);
