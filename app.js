@@ -1,21 +1,26 @@
 // events
 
-function deleteAllBtn(e){
-    let sisu = e;
-    sisu = e.target;
-    sisu = e.target.id;
-    sisu = e.target.className;
-    sisu = e.target.classList;
-    sisu = e.type;
-    sisu = e.clientY;
-    sisu = e.clientX;
-    sisu = e.offsetY;
-    sisu = e.offsetX;
+// function deleteAllBtn(e){
+//    document.querySelectorAll('li').forEach(el => el.remove()); 
+//};
 
-    console.log(sisu);
+function syndmus(e){
+    console.log(`Sündmuse tüüp: ${e.type}`);
+    text.textContent = `HiirX: ${e.offsetX} HiirY: ${e.offsetY}`;
+    document.body.style.background = `rgb(${e.offsetX}, ${e.offsetY}, 40)`
+}
 
-    document.querySelectorAll('li').forEach(el => el.remove()); 
-};
+const text = document.querySelector('h5');
+
+const card = document.querySelector('.card');
+//card.addEventListener('mouseenter', syndmus);
+//card.addEventListener('mouseleave', syndmus);
+//card.addEventListener('mouseover', syndmus);
+//card.addEventListener('mouseout', syndmus);
+card.addEventListener('mousemove', syndmus);
 
 const deleteAll = document.querySelector('.clear-tasks');
-deleteAll.addEventListener('click', deleteAllBtn);
+deleteAll.addEventListener('click', syndmus);
+// deleteAll.addEventListener('mouseup', syndmus);
+// deleteAll.addEventListener('mousedown', syndmus);
+// deleteAll.addEventListener('dblclick', syndmus);
