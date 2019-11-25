@@ -2,30 +2,29 @@
 
 class Isik{
     // Constructor
-    constructor(e, p, skp){
+    constructor(e, p){
         this.eesnimi = e;
         this.perenimi = p;
-        this.synnikuupaev = new Date(skp);
     };
     // Tervitus
     tervitus(){
         return `Tere, ${this.eesnimi} ${this.perenimi}!`
     };
-    // Vanuse arvutamine
-    vanus(){
-        let diff = Date.now() - this.synnikuupaev.getTime();
-        diff = new Date(diff);
-        diff = diff.getUTCFullYear();
-        return diff - 1970;
-    };
-    abielus(uusPereNimi){
-        this.perenimi = uusPereNimi;
-        return this.perenimi;
-    };
-}
+};
 
-const kaur = new Isik('Kaur', 'Tamm', '1995-02-19');
+class Klient extends Isik{
+    // Constructor
+    constructor(e, p, t, s){
+        super(e, p);
+        this.telefon = t;
+        this.status = s;
+    };
+    // Static method
+    static kuutasu(){
+        return 5;
+    };
+};
 
-console.log(kaur.vanus());
-kaur.abielus('Random');
+const kaur = new Klient('Kaur', 'Tamm', '1234 5678', 'silver');
 console.log(kaur.tervitus());
+console.log(Klient.kuutasu());
