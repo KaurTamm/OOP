@@ -5,6 +5,17 @@ function Raamat(p, a, i){
     this.isbn = i;
 };
 
+// Kasutaja liidese constructor
+function UI(){
+
+};
+
+UI.prototype.puhastaSisend = function(){
+    document.getElementById('title').value = '';
+    document.getElementById('author').value = '';
+    document.getElementById('isbn').value = '';
+};
+
 document.getElementById('book-form').addEventListener('submit', lisaRaamat);
 
 // Raamatu lisamise funktsioon
@@ -16,6 +27,10 @@ function lisaRaamat(e){
 
     const raamat = new Raamat(pealkiri, author, isbn);
     console.log(raamat);
-    
+
+    const ui = new UI();
+
+    ui.puhastaSisend();
+
     e.preventDefault();
 };
