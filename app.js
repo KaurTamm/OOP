@@ -1,9 +1,8 @@
 // Constructor
 
-function Isik(e, p, skp){
+function Isik(e, p){
     this.ees = e;
     this.pere = p;
-    this.synnikuupaev = new Date(skp);
 };
 
 // Object.prototype
@@ -12,22 +11,19 @@ Isik.prototype.taisNimi = function(){
     return `${this.ees} ${this.pere}`
 };
 
-Isik.prototype.getAge = function(){
-    const diff = Date.now() - this.synnikuupaev.getTime();
-    const vanusDateKujul = new Date(diff);
-    const taisAasta = vanusDateKujul.getUTCFullYear();
-    const vanus = taisAasta - 1970;
-    return vanus;
+function Klient(e, p, t, s){
+    Isik.call(this, e, p);
+    this.tel = t;
+    this.status = s;
 };
 
-Isik.prototype.abiellus = function(uusPere){
-    this.pere = uusPere;
-};
+Klient.prototype = Object.create(Isik.prototype);
+Klient.prototype.constructor = Klient;
 
+Klient.prototype.taisNimi = function(){
+    return `${this.ees} ${this.pere} - sinul on ${this.status} tase`
+}
 
-const kaur = new Isik('Kaur', 'Tamm', '1995-02-19');
-
-kaur.abiellus('Random');
+const kaur = new Klient('Kaur', 'Tamm', '1234 5678', 'silver');
 console.log(kaur);
 console.log(kaur.taisNimi());
-console.log(kaur.getAge());
