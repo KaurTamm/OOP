@@ -27,6 +27,15 @@ UI.prototype.lisaRaamatTabelisse = function(r){
     tabel.appendChild(rida);
 };
 
+UI.prototype.teade = function(s){
+    const div = document.createElement('div');
+    const tekst = document.createTextNode(s);
+    div.appendChild(tekst);
+    const container = document.querySelector('.container');
+    const vorm = document.getElementById('book-form');
+    container.insertBefore(div, vorm);
+};
+
 document.getElementById('book-form').addEventListener('submit', lisaRaamat);
 
 // Raamatu lisamise funktsioon
@@ -41,8 +50,13 @@ function lisaRaamat(e){
 
     const ui = new UI();
 
-    ui.lisaRaamatTabelisse(raamat);
-
+    if(pealkiri == '' || author == '' || isbn == ''){
+        ui.teade('Tule täita kõik väljad!');
+    }else{
+        ui.lisaRaamatTabelisse(raamat);
+        ui.teade('Raamat on lisatud!');
+    };
+    
     ui.puhastaSisend();
 
     e.preventDefault();
