@@ -1,22 +1,19 @@
-document.querySelector('form').addEventListener('submit', saveTask);
+let eesNimi;
+let pereNimi;
+let vanus;
 
-function saveTask(e){
-    const newTask = document.getElementById('task').value;
-    let allTasks;
-
-    if(localStorage.getItem('tasks') === null){
-        allTasks = [];
-    }else{
-        allTasks = JSON.parse(localStorage.getItem('tasks'));
-    }
-
-    allTasks.push(newTask);
-    localStorage.setItem('tasks', JSON.stringify(allTasks));
+function taisNimi(eesNimi, pereNimi){
+    return `${eesNimi} ${pereNimi}`;
 }
-const allTasks = JSON.parse(localStorage.getItem('tasks'));
 
-// function deleteAllBtn(e){
-//    document.querySelectorAll('li').forEach(el => el.remove()); 
-//};
-//const deleteAll = document.querySelector('.clear-tasks');
-//deleteAll.addEventListener('click', deleteAllBtn);;
+function arvutaVanus(vanus){
+    vanus = new Date(vanus);
+    diff = Date.now() - vanus.getTime();
+    vanusDate = new Date(diff);
+    aastaDate = vanusDate.getUTCFullYear();
+    age = aastaDate - 1970;
+    return `Vanus : ${age}`;
+}
+
+console.log(taisNimi("Kaur", "Tamm"));
+console.log(arvutaVanus("1995-02-19"));
