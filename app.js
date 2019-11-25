@@ -20,9 +20,14 @@ Isik.prototype.getAge = function(){
     return vanus;
 };
 
+Isik.prototype.abiellus = function(uusPere){
+    this.pere = uusPere;
+};
+
 
 const kaur = new Isik('Kaur', 'Tamm', '1995-02-19');
 
+kaur.abiellus('Random');
 console.log(kaur);
 console.log(kaur.taisNimi());
 console.log(kaur.getAge());
