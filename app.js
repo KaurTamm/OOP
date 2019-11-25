@@ -1,30 +1,21 @@
-// Class
-
-class Isik{
-    // Constructor
-    constructor(e, p){
-        this.eesnimi = e;
-        this.perenimi = p;
-    };
-    // Tervitus
-    tervitus(){
-        return `Tere, ${this.eesnimi} ${this.perenimi}!`
-    };
+// Raamatu constructor
+function Raamat(p, a, i){
+    this.pealkiri = p;
+    this.author = a;
+    this.isbn = i;
 };
 
-class Klient extends Isik{
-    // Constructor
-    constructor(e, p, t, s){
-        super(e, p);
-        this.telefon = t;
-        this.status = s;
-    };
-    // Static method
-    static kuutasu(){
-        return 5;
-    };
-};
+document.getElementById('book-form').addEventListener('submit', lisaRaamat);
 
-const kaur = new Klient('Kaur', 'Tamm', '1234 5678', 'silver');
-console.log(kaur.tervitus());
-console.log(Klient.kuutasu());
+// Raamatu lisamise funktsioon
+
+function lisaRaamat(e){
+    const pealkiri = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const isbn = document.getElementById('isbn').value;
+
+    const raamat = new Raamat(pealkiri, author, isbn);
+    console.log(raamat);
+    
+    e.preventDefault();
+};
