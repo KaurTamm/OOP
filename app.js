@@ -1,19 +1,23 @@
-let eesNimi;
-let pereNimi;
-let vanus;
+// Constructor
 
-function taisNimi(eesNimi, pereNimi){
-    return `${eesNimi} ${pereNimi}`;
-}
+function Isik(e, p, skp){
+    this.ees = e;
+    this.pere = p;
+    this.synnikuupaev = new Date(skp);
 
-function arvutaVanus(vanus){
-    vanus = new Date(vanus);
-    diff = Date.now() - vanus.getTime();
-    vanusDate = new Date(diff);
-    aastaDate = vanusDate.getUTCFullYear();
-    age = aastaDate - 1970;
-    return `Vanus : ${age}`;
-}
+    this.taisNimi = function(){
+        return `${this.ees} ${this.pere}`
+    };
 
-console.log(taisNimi("Kaur", "Tamm"));
-console.log(arvutaVanus("1995-02-19"));
+    this.getAge = function(){
+        const diff = Date.now() - this.synnikuupaev.getTime();
+        const vanusDateKujul = new Date(diff);
+        const taisAasta = vanusDateKujul.getUTCFullYear();
+        const vanus = taisAasta - 1970;
+        return vanus;
+    };
+};
+
+const kaur = new Isik('Kaur', 'Tamm', '1995-02-19');
+console.log(kaur);
+console.log(kaur.getAge());
