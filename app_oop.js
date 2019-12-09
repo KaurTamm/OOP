@@ -24,7 +24,7 @@ class KL{
           <td><a href="#" class="kustuta">X</a></td>
         `;
         // lisame rida tabelisse
-        tabel = document.getElementById('book-list');
+        const tabel = document.getElementById('book-list');
         tabel.appendChild(rida);
     };
     teade(s, stiil){
@@ -51,4 +51,42 @@ class KL{
             return true;
           };
     };
+};
+
+// kirjeldame raamatu lisamise sündmust
+document.getElementById('book-form').addEventListener('submit', lisaRaamat);
+// raamatu lisamise funktsioon
+function lisaRaamat(e){
+  // võtame andmed vormist
+  const pealkiri = document.getElementById('title').value;
+  const autor = document.getElementById('author').value;
+  const isbn = document.getElementById('isbn').value;
+  // loome raamat andmete põhjal
+  const raamat = new Raamat(autor, pealkiri, isbn);
+
+  // loome kasutaja liidese objekt temaga opereerimiseks
+  const kl = new KL();
+
+  // kui mingid andmed on puudu, 
+  // siis anname märku
+  if(pealkiri == '' | autor == '' | isbn == ''){
+    kl.teade('Tuleb täita kõik väljad!', 'invalid');
+  } else {
+    // muidu
+    // lisame sisestatud raamat tabelisse
+    console.log(raamat);
+    kl.lisaRaamatTabelisse(raamat);
+
+    // loome LS objekt funktsionaali kutsumiseks
+    //const ls = new LS();
+
+    // salvestame raamatu andmed LS-sse
+    //ls.salvestaRaamat(raamat);
+    // anname teade lisamisest
+    kl.teade('Raamat on lisatud!', 'valid');
+  }
+
+  // puhastame väljad sisestatud andmetest
+  kl.puhastaSisend();
+  e.preventDefault();
 };
