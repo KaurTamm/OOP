@@ -140,7 +140,7 @@ function raamatuteTabel(e){
   const kl = new KL();
   // kutsume raamatute näitamist funktsiooni
   kl.naitaRaamatud();
-}
+};
 
 // kirjeldame raamatu lisamise sündmust
 document.getElementById('book-form').addEventListener('submit', lisaRaamat);
