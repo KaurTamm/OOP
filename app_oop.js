@@ -46,7 +46,7 @@ class KL{
     };
     kustutaRaamatTabelist(kustutaElement){
         if(kustutaElement.className === 'kustuta'){
-            tabeliRida = kustutaElement.parentElement.parentElement;
+            const tabeliRida = kustutaElement.parentElement.parentElement;
             tabeliRida.remove();
             return true;
           };
@@ -78,15 +78,45 @@ function lisaRaamat(e){
     kl.lisaRaamatTabelisse(raamat);
 
     // loome LS objekt funktsionaali kutsumiseks
-    //const ls = new LS();
+    //const ls = new LS();                                      !!!
 
     // salvestame raamatu andmed LS-sse
-    //ls.salvestaRaamat(raamat);
+    //ls.salvestaRaamat(raamat);                                !!!
     // anname teade lisamisest
     kl.teade('Raamat on lisatud!', 'valid');
   }
 
   // puhastame väljad sisestatud andmetest
   kl.puhastaSisend();
+  e.preventDefault();
+};
+
+// raamatu kustutamise sündmus
+document.getElementById('book-list').addEventListener('click', kustutaRaamat);
+
+function kustutaRaamat(e){
+  // loome kasutaja liidese objekt temaga opereerimiseks
+  const kl = new KL();
+
+  // kutsume tabelis oleva raamatu kustutamise
+  // funktsioon
+  // loome X link, millel clickime kustutamiseks
+  const X = e.target;
+  // saame kustutava raamatu isbn kätte
+  isbn = X.parentElement.previousElementSibling.textContent;
+  // kustutame andmed tabeli väljundist
+  kl.kustutaRaamatTabelist(X);
+
+  // loome LS objekt funktsionaali kutsumiseks
+  //const ls = new LS();                                        !!!
+
+  // kustutame andmed LS-st
+  //onKustutatud = ls.kustutaRaamatLS(isbn);                    !!!
+  
+  // väljastame vastav teade
+  //if(onKustutatud){                                           !!!
+   kl.teade('Raamat on kustutatud', 'valid');
+  //}                                                           !!!
+  
   e.preventDefault();
 };
