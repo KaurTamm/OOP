@@ -12,4 +12,7 @@ class Weather{
         return data;
     };
     // Change city name
+    changeCityName(name){
+        this.city = name;
+    };
 };
